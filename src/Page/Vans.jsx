@@ -1,17 +1,22 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from "react";
 
 const Vans = () => {
-   
-    useEffect(() => {
-        fetch("/api/vans")
-          .then((response) => response.json())
-          .then(data => console.log(data))
-      }, [])
-    return (
-        <div>
-            vans page 
-        </div>
-    );
-}
+
+const [vansData, setVansData] = useState([])
+
+  useEffect(() => {
+    fetch("/api/vans")
+      .then((response) => response.json())
+     /// .then((data) => console.log(data));
+     .then(data => setVansData(data.vansData))
+  }, []);
+
+console.log(vansData)
+
+  return (
+    <div>vans page</div>
+)
+  
+};
 
 export default Vans;
