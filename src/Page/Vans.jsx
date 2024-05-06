@@ -19,12 +19,13 @@ const Vans = () => {
             <h3>{vandata.name}</h3>
             <p>${vandata.price}<span>/day</span></p>
         </div>
-        <i className={`vantype ${vandata.type} selected`}>{vandata.type}</i>
+        <i className={`van-type ${vandata.type} selected`}>{vandata.type}</i>
     </div>
 ))
 
   return (
     <div className="vancontainer">
+        <h1>Explore our van options</h1>
         <div className="vanlist">
             {vanItems}
         </div>

@@ -6,6 +6,7 @@ import Header from './Page/Header.jsx';
 import Home from './Page/Home.jsx';
 import Vans from './Page/Vans.jsx';
 import About from './Page/About.jsx';
+import VanDetail from './Page/VanDetail.jsx';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/vans" element={<Vans />} />
+        <Route path="/vans/:id" element={<VanDetail />} />
         <Route path="/about" element={<About />} />
       </Routes>
     </BrowserRouter>
