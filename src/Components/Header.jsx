@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../Assets/logo.png";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -10,13 +10,24 @@ const Header = () => {
           <img src={logo} className="sitelogo" alt="logo" />
         </Link>
         <nav>
-          <Link to="/host">Host</Link>
-        </nav>
-        <nav>
-          <Link to="/about">About</Link>
-        </nav>
-        <nav>
-          <Link to="/vans">Vans</Link>
+          <NavLink
+            to="/host"
+            className={({ isActive }) => (isActive ? "activelink" : null)}
+          >
+            Host
+          </NavLink>
+          <NavLink
+            to="/about"
+            className={({ isActive }) => (isActive ? "activelink" : null)}
+          >
+            About
+          </NavLink>
+          <NavLink
+            to="/vans"
+            className={({ isActive }) => (isActive ? "activelink" : null)}
+          >
+            Vans
+          </NavLink>
         </nav>
       </header>
     </div>
