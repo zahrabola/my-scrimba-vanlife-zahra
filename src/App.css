@@ -241,3 +241,22 @@ i[class*='van-type-'] {
 .linkbutton:hover {
   transform: translate(1px, 1px);
 }
+
+.detailcontainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1em auto;
+  text-align: center;
+  
+}
+.vandetaildesc{
+  text-align: center;
+  max-width: 700px;
+  align-items: center;
+  justify-content: center;
+  margin: 1em auto;
+
+
+}
+

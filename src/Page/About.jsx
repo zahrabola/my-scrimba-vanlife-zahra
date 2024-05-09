@@ -13,7 +13,7 @@ const About = () => {
              </div>
              <div className="aboutcta">
                 <h2>Your destination is waiting.<br />Your van is ready.</h2>
-                <Link className="linkbutton" to="/vans">Explore our vans</Link>
+                <Link className="linkbutton linkbtn" to="/vans">Explore our vans</Link>
             </div>
         </div>
     );

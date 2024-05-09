@@ -19,17 +19,21 @@ const VanDetail = () => {
 
 
     return (
-        <div className='vancontainer'>
+        <div class="detailcontainer">
+   
+  <div className='vancontainer'>
            
            { vandetail ? (
-            <div className='vandetail'>
+            <div className='vantile'>
                <img src={vandetail.imageUrl} alt='img' />
                <div className='vandetailbtn'>
                     <i className={`van-type ${vandetail.type} selected`}>{vandetail.type}</i>
                     </div>
                     <h2>{vandetail.name}</h2>
                     <p className="vanprice"><span>${vandetail.price}</span>/day</p>
-                    <p>{vandetail.description}</p>
+                    <div className='vandetaildesc'>
+                    <p >{vandetail.description}</p>
+                    </div>
                     <button className="linkbutton">Rent this van</button>
                 </div>
 
@@ -37,6 +41,8 @@ const VanDetail = () => {
 
            ): <h1>Loading </h1>}
         </div>
+        </div>
+      
     );
 }
 
