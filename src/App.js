@@ -6,6 +6,9 @@ import Vans from "./Page/Vans/Vans.jsx";
 import About from "./Page/About.jsx";
 import VanDetail from "./Page/Vans/VanDetail.jsx";
 import Layout from "./Components/layout.jsx";
+import Dashboard from "./Page/Host/Dashboard.jsx";
+import Income from "./Page/Host/Income.jsx";
+import Reviews from "./Page/Host/Reviews.jsx";
 
 function App() {
   return (
@@ -19,6 +22,9 @@ function App() {
             <Route path="/vans" element={<Vans />} />
             <Route path="/vans/:id" element={<VanDetail />} />
             <Route path="/about" element={<About />} />
+            <Route path="/host" element={<Dashboard/>} />
+            <Route path="/host/income" element={<Income/>} />
+            <Route path="/host/reviews" element={<Reviews/>} />
           </Route>
         </Routes>
       </BrowserRouter>
