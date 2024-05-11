@@ -17,6 +17,13 @@ body {
 -ms-overflow-style: none;
 scrollbar-width: none;
 }
+
+.sitewrapper{
+  min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
 header {
   height: 110px;
   display: flex;
@@ -47,6 +54,9 @@ a.activelink{
 }
 .footercontainer a{
   text-decoration: none !important;
+  bottom: 0;
+  position: fixed;
+  text-align: center
 }
 footer{
   background-color: #161616;
@@ -58,17 +68,24 @@ footer{
   align-items: center;
   margin-top: auto;
   font-weight: 500;
+  bottom: 0;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center
 }
 .footersmall{
   display: flex;
   flex-shrink: 0;
   justify-content: center;
   align-items: center;
+  text-align: center;
   background-color: #161616;
+  padding-left: 20px;
   padding-bottom: 10px;
   text-decoration: none;
   color: #AAAAAA;
-
   cursor: pointer;
 text-decoration: #161616;
 }
@@ -355,10 +372,10 @@ i[class*='van-type-'] {
 }
 .hostvandetail{
   display: flex;
-    align-items: center;
+  align-items: center;
 }
 .hostvandetail > img {
-  height: 300px;
+  height: 160px;
   border-radius: 5px;
   margin-right: 20px;
 }
@@ -373,4 +390,49 @@ i[class*='van-type-'] {
 .hostvandetailinfo > h4 {
   font-size: 20px;
   margin-block: 0;
+}
+
+.hostvandetailinfotext > h4 {
+  text-align: start;
+}
+.hostvandetailinfotext > h3 {
+  text-align: start;
+}
+.backbtn{
+  display: block;
+  color: black;
+  text-decoration: none;
+  margin-top: 50px;
+  margin-left: 30px;
+}
+.hostvandetailnav{
+  margin-block: 25px;
+}
+.hostvandetailnav a {
+  text-decoration: none;
+  color: #4D4D4D;
+  font-weight: 500;
+  padding: 5px 20px;
+}
+
+.hostvandetailnav a:first-of-type {
+  text-decoration: none;
+  color: #4D4D4D;
+  font-weight: 500;
+  padding: 5px 15px;
+  margin-left: -15px;
+}
+.hostvandetailnav  a:hover {
+  color: #161616;
+  text-decoration: underline;
+  font-weight: 700;
+}
+
+.contextinfo{
+  text-align: start;
+  max-width: 700px;
+}
+.hostvandetailimage{
+  max-width: 60%;
+  padding: 10px;
 }

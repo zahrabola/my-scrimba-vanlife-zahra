@@ -11,7 +11,7 @@ const HostLayout = () => {
     <div>
       <nav className="hostnav">
         <NavLink
-          to="/host"
+          to="."
           end
           style={({ isActive }) => (isActive ? activeStyles : null)}
         >
@@ -45,4 +45,4 @@ const HostLayout = () => {
 };
 
 export default HostLayout;
-/* /host/income, /host/vans, to="/host/reviews"*/
+/*/host, /host/income, /host/vans, to="/host/reviews"*/
