@@ -19,21 +19,21 @@ const HostLayout = () => {
         </NavLink>
 
         <NavLink
-          to="/host/income"
+          to="income"
           style={({ isActive }) => (isActive ? activeStyles : null)}
         >
           Income
         </NavLink>
 
         <NavLink
-          to="/host/vans"
+          to="vans"
           style={({ isActive }) => (isActive ? activeStyles : null)}
         >
           Vans
         </NavLink>
 
         <NavLink
-          to="/host/reviews"
+          to="reviews"
           style={({ isActive }) => (isActive ? activeStyles : null)}
         >
           Reviews
@@ -45,3 +45,4 @@ const HostLayout = () => {
 };
 
 export default HostLayout;
+/* /host/income, /host/vans, to="/host/reviews"*/

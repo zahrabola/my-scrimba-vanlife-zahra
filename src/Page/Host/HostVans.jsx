@@ -15,6 +15,7 @@ const HostVans = () => {
   const HostVansItems = vans.map((vandata) => (
     <Link
       to={`${vandata.id}`}
+      /* to={`/host/vans/${vandata.id}`} */
       key={vandata.id}
       className="hostvanwrapper"
     >
