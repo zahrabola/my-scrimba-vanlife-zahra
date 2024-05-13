@@ -44,26 +44,32 @@ const Vans = () => {
       <div className="vanlistfilterbtns">
         <button
           className="van-type simple"
-          onClick={() => setSearchParams({type: "simple"})}
+          onClick={() => setSearchParams({ type: "simple" })}
         >
           Simple
         </button>
         <button
           className="van-type luxury"
-          onClick={() => setSearchParams({type: "luxury"})}
+          onClick={() => setSearchParams({ type: "luxury" })}
         >
           Luxury
         </button>
         <button
           className="van-type rugged"
-          onClick={() => setSearchParams({type: "rugged"})}
+          onClick={() => setSearchParams({ type: "rugged" })}
         >
           Rugged
         </button>
-        <button className="van-type clearfilter" 
-        onClick={() => setSearchParams({})}>
-          Clear Filter
-        </button>
+        
+        {typeFilter ? (
+          <button
+            className="van-type clearfilter"
+            onClick={() => setSearchParams({})}
+          >
+            Clear Filter
+          </button>
+        ) : null}
+
       </div>
       <div className="vanlist">{vanItems}</div>
     </div>
