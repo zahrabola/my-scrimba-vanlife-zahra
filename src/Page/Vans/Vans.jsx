@@ -4,6 +4,7 @@ import { getVans } from "../../Data/Api";
 const Vans = () => {
   const [vans, setVans] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null)
 
   //search params - filter
   const [searchParams, setSearchParams] = useSearchParams();
@@ -24,11 +25,15 @@ const Vans = () => {
   useEffect(() => {
     async function loadVans() {
       setLoading(true);
-      const data = await getVans();
-      setVans(data);
-      setLoading(false);
+      try {
+        const data = await getVans()
+        setVans(data)
+    } catch (err) {
+        setError(err)
+    } finally {
+        setLoading(false)
     }
-
+}
     loadVans();
   }, []);
 
@@ -58,8 +63,12 @@ const Vans = () => {
   ));
 
   if (loading) {
-    return <h1>Loading ...</h1>;
-  }
+    return <h1>Loading...</h1>
+}
+
+if (error) {
+    return <h1>There was an error: {error.message}</h1>
+}
 
   return (
     <div className="vancontainer">
