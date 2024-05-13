@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 const Vans = () => {
   const [vans, setVans] = useState([]);
+
+ //search params - filter
+  const [searchParams, setSearchParams] = useSearchParams()
+  const typeFilter = (searchParams.get("type"))
+  console.log(typeFilter)
 
   useEffect(() => {
     fetch("/api/vans")
@@ -12,7 +17,12 @@ const Vans = () => {
   }, []);
   // console.log(vans)
 
-  const vanItems = vans.map((vandata) => (
+ //filter
+ const displayedVans = typeFilter
+ ? vans.filter(vandata => vandata.type === typeFilter) : vans
+
+
+  const vanItems = /*vans*/ displayedVans.map((vandata) => (
     <div key={vandata.id} className="vantile">
       <Link to={`/vans/${vandata.id}`}>
         <img src={vandata.imageUrl} alt="img" />
