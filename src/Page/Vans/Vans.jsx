@@ -24,7 +24,10 @@ const Vans = () => {
 
   const vanItems = /*vans*/ displayedVans.map((vandata) => (
     <div key={vandata.id} className="vantile">
-      <Link to={`/vans/${vandata.id}`}>
+      <Link
+        to={`/vans/${vandata.id}`}
+        /*to={`${vandata.id}`} */
+      >
         <img src={vandata.imageUrl} alt="img" />
         <div className="vaninfo">
           <h3>{vandata.name}</h3>
@@ -43,24 +46,30 @@ const Vans = () => {
       <h1>Explore our van options</h1>
       <div className="vanlistfilterbtns">
         <button
-          className="van-type simple"
+          className={`van-type simple ${
+            typeFilter === "simple" ? "selected" : ""
+          }`}
           onClick={() => setSearchParams({ type: "simple" })}
         >
           Simple
         </button>
         <button
-          className="van-type luxury"
+          className={`van-type luxury ${
+            typeFilter === "luxury" ? "selected" : ""
+          }`}
           onClick={() => setSearchParams({ type: "luxury" })}
         >
           Luxury
         </button>
         <button
-          className="van-type rugged"
+          className={`van-type rugged ${
+            typeFilter === "rugged" ? "selected" : ""
+          }`}
           onClick={() => setSearchParams({ type: "rugged" })}
         >
           Rugged
         </button>
-        
+
         {typeFilter ? (
           <button
             className="van-type clearfilter"
@@ -69,7 +78,6 @@ const Vans = () => {
             Clear Filter
           </button>
         ) : null}
-
       </div>
       <div className="vanlist">{vanItems}</div>
     </div>
