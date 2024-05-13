@@ -186,7 +186,7 @@ text-decoration: #161616;
 /*** VAN PAGES ***/
 .vancontainer {
   padding-inline: 23px;
-  margin-bottom: 20px;
+  margin-bottom: 100px;
 }
 
 .vanlist {
@@ -249,7 +249,7 @@ text-decoration: #161616;
   background-color: #161616;
 }
 
-.van-type.clear-filters {
+.van-type.clearfilters {
   margin-left: -20px;
   height: 34px;
   padding: 6px 26px;
@@ -310,6 +310,17 @@ i[class*='van-type-'] {
 
 
 }
+
+
+.vanlistfilterbtns {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.vanlistfilterbtns > a {
+  margin-right: 15px;
+}
+
 /* host */
 
 .hostnav {

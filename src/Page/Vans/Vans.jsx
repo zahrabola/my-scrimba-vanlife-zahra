@@ -41,6 +41,13 @@ const Vans = () => {
   return (
     <div className="vancontainer">
       <h1>Explore our van options</h1>
+      <div className="vanlistfilterbtns">
+        <Link className="van-type simple" to="?type=simple">Simple</Link>
+        <Link className="van-type luxury" to="?type=luxury">Luxury</Link>
+        <Link className="van-type rugged" to="?type=rugged">Rugged</Link>
+        <Link className="van-type clearfilter" to=".">Clear Filter</Link>
+
+      </div>
       <div className="vanlist">{vanItems}</div>
     </div>
   );
