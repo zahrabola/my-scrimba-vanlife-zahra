@@ -15,6 +15,7 @@ import HostVanDetail from "./Page/Host/HostVanDetail.jsx";
 import HostVanDetailPhoto from "./Page/Host/Details/HostVanDetailPhoto.jsx";
 import HostVanDetailInfo from "./Page/Host/Details/HostVanDetailInfo.jsx";
 import HostVanDetailPrice from "./Page/Host/Details/HostVanDetailPrice.jsx";
+import NotFound from "./Page/NotFound.jsx";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Routes>
           <Route element={<Layout />}>
             <Route path="/" element={<Home />} />
+          
             <Route path="vans" element={<Vans />} />
             <Route path="vans/:id" element={<VanDetail />} />
             <Route path="about" element={<About />} />
@@ -37,7 +39,7 @@ function App() {
                 <Route path="photos" element={<HostVanDetailPhoto/>} /> 
                 <Route path="pricing" element={<HostVanDetailPrice />} /> 
               </Route>
-
+              <Route path="*" element={<NotFound />} />
             </Route>
           </Route>
         </Routes>

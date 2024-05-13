@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-
+import { getVans } from "../../Data/Api";
 const Vans = () => {
   const [vans, setVans] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   //search params - filter
   const [searchParams, setSearchParams] = useSearchParams();
   const typeFilter = searchParams.get("type");
-  console.log(typeFilter);
+  ///console.log(typeFilter);
 
+  /*
   useEffect(() => {
     fetch("/api/vans")
       .then((response) => response.json())
@@ -16,6 +18,19 @@ const Vans = () => {
       .then((data) => setVans(data.vans));
   }, []);
   // console.log(vans)
+  API.JS / Data folder
+  */
+
+  useEffect(() => {
+    async function loadVans() {
+      setLoading(true);
+      const data = await getVans();
+      setVans(data);
+      setLoading(false);
+    }
+
+    loadVans();
+  }, []);
 
   //filter
   const displayedVans = typeFilter
@@ -27,6 +42,7 @@ const Vans = () => {
       <Link
         to={`/vans/${vandata.id}`}
         /*to={`${vandata.id}`} */
+        state={{ search: `?${searchParams.toString()}`, type: typeFilter }}
       >
         <img src={vandata.imageUrl} alt="img" />
         <div className="vaninfo">
@@ -40,6 +56,10 @@ const Vans = () => {
       </Link>
     </div>
   ));
+
+  if (loading) {
+    return <h1>Loading ...</h1>;
+  }
 
   return (
     <div className="vancontainer">
