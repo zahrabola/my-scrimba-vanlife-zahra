@@ -4,10 +4,10 @@ import { Link, useSearchParams } from "react-router-dom";
 const Vans = () => {
   const [vans, setVans] = useState([]);
 
- //search params - filter
-  const [searchParams, setSearchParams] = useSearchParams()
-  const typeFilter = (searchParams.get("type"))
-  console.log(typeFilter)
+  //search params - filter
+  const [searchParams, setSearchParams] = useSearchParams();
+  const typeFilter = searchParams.get("type");
+  console.log(typeFilter);
 
   useEffect(() => {
     fetch("/api/vans")
@@ -17,10 +17,10 @@ const Vans = () => {
   }, []);
   // console.log(vans)
 
- //filter
- const displayedVans = typeFilter
- ? vans.filter(vandata => vandata.type === typeFilter) : vans
-
+  //filter
+  const displayedVans = typeFilter
+    ? vans.filter((vandata) => vandata.type === typeFilter)
+    : vans;
 
   const vanItems = /*vans*/ displayedVans.map((vandata) => (
     <div key={vandata.id} className="vantile">
@@ -42,11 +42,28 @@ const Vans = () => {
     <div className="vancontainer">
       <h1>Explore our van options</h1>
       <div className="vanlistfilterbtns">
-        <Link className="van-type simple" to="?type=simple">Simple</Link>
-        <Link className="van-type luxury" to="?type=luxury">Luxury</Link>
-        <Link className="van-type rugged" to="?type=rugged">Rugged</Link>
-        <Link className="van-type clearfilter" to=".">Clear Filter</Link>
-
+        <button
+          className="van-type simple"
+          onClick={() => setSearchParams({type: "simple"})}
+        >
+          Simple
+        </button>
+        <button
+          className="van-type luxury"
+          onClick={() => setSearchParams({type: "luxury"})}
+        >
+          Luxury
+        </button>
+        <button
+          className="van-type rugged"
+          onClick={() => setSearchParams({type: "rugged"})}
+        >
+          Rugged
+        </button>
+        <button className="van-type clearfilter" 
+        onClick={() => setSearchParams({})}>
+          Clear Filter
+        </button>
       </div>
       <div className="vanlist">{vanItems}</div>
     </div>
