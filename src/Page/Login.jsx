@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { useNavigate, useLocation } from "react-router-dom"
+import {   useNavigate, useLocation } from "react-router-dom"
+import {loginUser} from "../Data/Api"
 
 const Login = () => {
 
@@ -10,7 +11,11 @@ const Login = () => {
 
     function handleSubmit(event) {
         event.preventDefault()
-        console.log(loginFormData)
+
+        loginUser(loginFormData)
+            .then(data => console.log(data))
+
+       /// console.log(loginFormData)
     }
 
     function handleChange(event) {

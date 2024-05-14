@@ -1,7 +1,5 @@
 
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(() => resolve(), ms))
-}
+
 
 export async function getVans(id) {
     const url = id ? `/api/vans/${id}` : "/api/vans"
@@ -34,7 +32,7 @@ export async function getHostVans(id) {
 }
 
 export async function loginUser(creds) {
-    const res = await fetch("/api/login",
+    const response = await fetch("/api/login",
         { method: "post", body: JSON.stringify(creds) }
     )
     const data = await response.json()
