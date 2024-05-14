@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link, useLocation } from "react-router-dom";
+import { getVans } from "../../Data/Api"
 
 const VanDetail = () => {
   const params = useParams();
@@ -7,15 +8,42 @@ const VanDetail = () => {
   console.log(location)
 
   const [vandetail, setVanDetail] = useState(null);
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
 
   //console.log(params)
 
-  useEffect(() => {
+ /* useEffect(() => {
     fetch(`/api/vans/${params.id}`)
       .then((response) => response.json())
       ///.then((data) => console.log(data));
       .then((data) => setVanDetail(data.vans));
   }, [params.id]);
+  */
+
+  useEffect(() => {
+    async function loadVans() {
+        setLoading(true)
+        try {
+            const data = await getVans(params.id)
+            setVanDetail(data)
+        } catch (err) {
+            setError(err)
+        } finally {
+            setLoading(false)
+        }
+    }
+    loadVans()
+}, [params.id])
+
+if (loading) {
+  return <h1>Loading...</h1>
+}
+
+if (error) {
+  return <h1>There was an error: {error.message}</h1>
+}
+
 
   const search = location.state?.search || ""
 
