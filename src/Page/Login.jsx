@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation,  useNavigate  } from "react-router-dom";
 import { loginUser } from "../Data/Api";
 
 const Login = () => {
@@ -12,25 +12,34 @@ const Login = () => {
 
 
 
-  const location = useLocation();
-  // console.log(location)
+  const location = useLocation()
+ console.log(location)
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    setStatus("submitting");
+  const navigate = useNavigate();
+ //console.log(navigate)
+
+ function handleSubmit(e) {
+    e.preventDefault()
+    setStatus("submitting")
     loginUser(loginFormData)
-      .then((data) => {
-        console.log(data)
-      })
-      .catch(error => {
-        setError(error)
-      })
-      .finally(() => {
-        setStatus("idle");
-      });
+        .then(data => {
+            setError(null)
+            localStorage.setItem("loggedin", true)
+            navigate("/host")
+        })
+        .catch(err => {
+            setError(err)
+        })
+        .finally(() => {
+            setStatus("idle")
+        })
+
     /*.then(data => console.log(data))*/
     /// console.log(loginFormData)
   }
+
+
+
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -43,13 +52,17 @@ const Login = () => {
   return (
     <div>
       <div className="logincontainer">
-        {location.state?.message && (
-          <h3 className="loginfirst"> {location.state.message}</h3>
-        )}
-        <h1>Sign in to your accounts</h1>
-        {error?.message && (
-          <h3 className="loginfirst"> {error.message}</h3>
-        )}
+  
+          
+            <h1>Sign in to your account</h1>
+              {
+                location.state?.message &&
+                    <h3 className="loginfirst">{location.state.message}</h3>
+            }
+            {
+                error?.message &&
+                    <h3 className="loginfirst">{error.message}</h3>
+            }
         <form onSubmit={handleSubmit} className="loginform">
           <input
             type="email"
@@ -66,7 +79,10 @@ const Login = () => {
             value={loginFormData.password}
           />
           <button disabled={status === "submitting"}>
-            {status === "submitting" ? "Logging in...." : "Log in"}
+          {status === "submitting"
+                        ? "Logging in..."
+                        : "Log in"
+                    }
           </button>
         </form>
       </div>

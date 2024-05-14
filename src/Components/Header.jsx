@@ -3,6 +3,18 @@ import logo from "../Assets/logo.png";
 import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
+
+
+    const activeStyles = {
+        fontWeight: "bold",
+        textDecoration: "underline",
+        color: "#161616"
+    }
+    
+  function fakeLogOut() {
+    localStorage.removeItem("loggedin")
+}
+
   return (
     <div>
       <header>
@@ -12,19 +24,19 @@ const Header = () => {
         <nav>
           <NavLink
             to="/host"
-            className={({ isActive }) => (isActive ? "activelink" : null)}
+            className={({ isActive }) => (isActive ? "activeStyles" : null)}
           >
             Host
           </NavLink>
           <NavLink
             to="/about"
-            className={({ isActive }) => (isActive ? "activelink" : null)}
+            className={({ isActive }) => (isActive ? "activeStyles" : null)}
           >
             About
           </NavLink>
           <NavLink
             to="/vans"
-            className={({ isActive }) => (isActive ? "activelink" : null)}
+            className={({ isActive }) => (isActive ? "activeStyles" : null)}
           >
             Vans
           </NavLink>
@@ -34,7 +46,9 @@ const Header = () => {
           >
           login
           </NavLink>
+          
         </nav>
+        <button onClick={fakeLogOut}>X</button>
       </header>
     </div>
   );

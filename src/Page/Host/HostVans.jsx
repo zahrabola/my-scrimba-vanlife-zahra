@@ -31,6 +31,7 @@ const HostVans = () => {
     }
     loadVans()
 }, [])
+  //  console.log(vans)
 
   const HostVansItems = vans.map((vandata) => (
     <Link

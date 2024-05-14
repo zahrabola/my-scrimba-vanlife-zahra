@@ -27,7 +27,7 @@ const HostVanDetail = () => {
         setLoading(true)
         try {
             const data = await getHostVans(id)
-            setCurrentVan(data)
+            setCurrentVanDetail(data)
         } catch (err) {
             setError(err)
         } finally {
@@ -48,7 +48,6 @@ if (error) {
 
 
 
-
   return (
     <section>
       <div>
@@ -56,10 +55,13 @@ if (error) {
           &larr; <span>Back to all vans</span>
         </Link>
       </div>
+      {
+        currentvandetail &&
+     
       <div className="detailcontainer">
         <div className="hostdetailcontainer">
           <div className="hostvandetail">
-            <img src={currentvandetail.imageUrl} alt="img" />
+          <img src={currentvandetail.imageUrl} alt="prop" />
             <div className="hostvandetailinfo">
               <i className={`van-type van-type-${currentvandetail.type}`}>
                 {currentvandetail.type}
@@ -97,8 +99,10 @@ if (error) {
             <Outlet context={[currentvandetail]} />
         </div>
       </div>
+       }
     </section>
   );
 };
 
 export default HostVanDetail;
+
