@@ -28,6 +28,12 @@ const Header = () => {
           >
             Vans
           </NavLink>
+          <NavLink
+            to="/login"
+            className="loginlink"
+          >
+          login
+          </NavLink>
         </nav>
       </header>
     </div>
