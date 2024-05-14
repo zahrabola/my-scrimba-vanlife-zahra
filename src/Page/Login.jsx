@@ -18,6 +18,8 @@ const Login = () => {
   const navigate = useNavigate();
  //console.log(navigate)
 
+const from = location.state?.from  || "/host";
+
  function handleSubmit(e) {
     e.preventDefault()
     setStatus("submitting")
@@ -25,7 +27,9 @@ const Login = () => {
         .then(data => {
             setError(null)
             localStorage.setItem("loggedin", true)
-            navigate("/host")
+            navigate(from, {replace: true})
+            /* "/host" */
+
         })
         .catch(err => {
             setError(err)
