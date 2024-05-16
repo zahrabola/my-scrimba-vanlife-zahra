@@ -20,7 +20,7 @@ const Dashboard = () => {
   function renderVanDashboardItem(vans) {
     const hostVanDashItem = vans.map((vandashdetail) => (
      
-      <div className="hostvanwdash">
+      <div className="hostvanwdash" key={vandashdetail.id}>
              <div className="hostvansingle hostvanitem" key={vandashdetail.id}>
         <img src={vandashdetail.imageUrl} alt={` ${vandashdetail.name}`} />
         <div className="hostvaninfo">
