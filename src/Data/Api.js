@@ -98,7 +98,7 @@ export async function getVans(id) {
 }
 
 export async function getHostVans(id) {
-    const url = id ? `/api/host/vans/${id}` : "/api/host/vans"
+    const url = id ? `/api/host/vans/${id}` : "/api/host/vans/"
     const res = await fetch(url)
     if (!res.ok) {
         throw {
@@ -122,7 +122,9 @@ export async function loginUser(creds) {
             message: data.message,
             statusText: res.statusText,
             status: res.status
+            
         }
+      
     }
 
     return data

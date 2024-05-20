@@ -27,7 +27,7 @@ const Dashboard = () => {
           <h3>{vandashdetail.name}</h3>
           <p>${vandashdetail.price}/ day</p>
         </div>
-        <Link to={`vans/n${vandashdetail.id}`}>View</Link>
+        <Link to={`vans/${vandashdetail.id}`}>View</Link>
       </div>
         </div>
      
